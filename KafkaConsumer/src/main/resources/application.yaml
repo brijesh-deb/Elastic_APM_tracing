@@ -1,0 +1,29 @@
+server:
+  port: 8087
+spring:
+  cloud:
+    stream:
+      default:
+        producer:
+          useNativeEncoding: true
+        consumer:
+          useNativeEncoding: true
+      bindings:
+        input:
+          destination: apm-topic
+          content-type: application/*+avro
+          group: group-1
+          concurrency: 3
+      kafka:
+        binder:
+          producer-properties:
+            bootstrap-servers: localhost:9092
+            key.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+            value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+            schema.registry.url: http://192.168.0.95:8081
+          consumer-properties:
+            bootstrap-servers: localhost:9092
+            key.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+            value.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+            schema.registry.url: http://localhost:8081
+            specific.avro.reader: true
