@@ -30,7 +30,7 @@ public class TestControllerTraceHTTPClient {
         ResponseEntity<String> response
                 = restTemplate.getForEntity(resourceUrl, String.class);
 
-        System.out.println("Response from child:" +response.getBody());
+        System.out.println("Response from KafkaProducer:" +response.getBody());
 
         return "TestControllerTraceHTTPClient.publishFromHttpClient - END";
     }
@@ -40,12 +40,12 @@ public class TestControllerTraceHTTPClient {
     {
         RestTemplate restTemplate = new RestTemplate();
         String resourceUrl = "http://localhost:8086/exception";
-        System.out.println("TestControllerTraceHTTPClient.publishFromHttpClient - START");
+        System.out.println("TestControllerTraceHTTPClient.callProducerDummyException - START");
         ResponseEntity<String> response
                 = restTemplate.getForEntity(resourceUrl, String.class);
 
-        System.out.println("Response from child:" +response.getBody());
+        System.out.println("Response from KafkaProducer:" +response.getBody());
 
-        return "TestControllerTraceHTTPClient.publishFromHttpClient - END";
+        return "TestControllerTraceHTTPClient.callProducerDummyException - END";
     }
 }
