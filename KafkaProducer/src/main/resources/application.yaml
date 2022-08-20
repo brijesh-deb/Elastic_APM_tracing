@@ -15,7 +15,7 @@ spring:
       kafka:
         binder:
           producer-properties:
-            bootstrap-servers: "localhost:9092"
-            key.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-            schema.registry.url: "http://localhost:8081"
-            value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+            bootstrap-servers: localhost:9092
+            schema.registry.url: http://localhost:8081
+            key.deserializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+            value.deserializer: io.confluent.kafka.serializers.KafkaAvroSerializer
