@@ -10,7 +10,8 @@ import org.springframework.cloud.stream.messaging.Processor;
 @EnableBinding(Processor.class)
 public class TraceKafkaProducerApplication
 {
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		ElasticApmAttacher.attach();
 		SpringApplication.run(TraceKafkaProducerApplication.class, args);
 	}
